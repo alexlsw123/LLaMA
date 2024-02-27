@@ -45,7 +45,6 @@ class RMSNorm(torch.nn.Module):
         Returns:
             torch.Tensor: The normalized tensor.
         """
-        # todo
         return x * torch.rsqrt(x.pow(2).mean(-1, keepdim = True) + self.eps)
 
     def forward(self, x):
@@ -97,7 +96,6 @@ class Attention(nn.Module):
         Make sure to use attention_dropout (self.attn_dropout) on the computed
         attention matrix before applying it to the value tensor.
         '''
-        # todo
         scores = torch.matmul(query, key.transpose(2, 3)) / math.sqrt(self.head_dim)
         scores = F.softmax(scores.float(), dim=-1).type_as(query)
         scores = self.attn_dropout(scores)
@@ -206,7 +204,6 @@ class LlamaLayer(nn.Module):
         5) add a residual connection from the unnormalized self-attention output to the
            output of the feed-forward network
         '''
-        # todo
         h = x + self.attention.forward(self.attention_norm(x))
         out = h + self.feed_forward.forward(self.ffn_norm(h))
         return out
@@ -283,7 +280,6 @@ class Llama(LlamaPreTrainedModel):
             # forward the model to get the logits for the index in the sequence
             logits, _ = self(idx_cond)
             logits = logits[:, -1, :] # crop to just the final time step
-            # todo
             if temperature == 0.0:
                 # select the single most likely index
                 idx_next = torch.topk(logits, k=1, dim=-1)[1]
