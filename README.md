@@ -20,7 +20,7 @@ I tested the model in following 3 settings once I implemented the model:
 ### outputs/accuracies: 
 
 *Text Continuation* (`python run_llama.py --option generate`)
-You should see continuations of the sentence `I have wanted to see this thriller for a while, and it didn't disappoint. Keanu Reeves, playing the hero John Wick, is...`. We will generate two continuations - one with temperature 0.0 (which should have a reasonably coherent, if unusual, completion) and one with temperature 1.0 (which is likely to be logically inconsistent and may contain some coherence or grammar errors).
+You should see continuations of the sentence `I have wanted to see this thriller for a while, and it didn't disappoint. Keanu Reeves, playing the hero John Wick, is...`. I generated two continuations - one with temperature 0.0 (which should have a reasonably coherent, if unusual, completion) and one with temperature 1.0 (which is likely to be logically inconsistent and may contain some coherence or grammar errors).
 
 *Zero Shot Prompting*
 Zero-Shot Prompting for SST:
